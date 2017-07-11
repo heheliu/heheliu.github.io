@@ -155,6 +155,61 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Effective-Java" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/07/11/Effective-Java/">Effective Java</a>
+    </h1>
+  
+
+        
+        <a href="/2017/07/11/Effective-Java/" class="archive-article-date">
+  	<time datetime="2017-07-11T01:51:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>分享第一章 创建与销毁对象<br>主题：何时以及如何创建对象，何时以及如何避免创建对象，如何确保它们能够适时的销毁，以及如何管理对象销毁之前必须进行的各种清理动作 </p>
+<p>第一条：考虑用静态工厂方法代替构造器<br>对于类而言，为了让客户端获取它自身的一个实例，最常用的就是提供一个共有的构造器，还有另外一个方法就是静态工厂方法。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">优势1：它有名称</div></pre></td></tr></table></figure></p>
+<p>一个类只能有一个带有指定签名的构造器，如果提供两个构造器，它们的参数列表只在参数类型的顺序上有所不同。使用静态工厂的方法可以确切描述返回的对象，便于阅读，也更为清楚。（BigInteger.probablePrime）<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">优势2：不必在每次调用的时候都创建一个新的对象</div></pre></td></tr></table></figure></p>
+<p>使得不可变类可以使用构建好的实例，或者将构建好的实例缓存起来，进行重复利用，从而避免创建不必要的重复对象。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">优势3：可以返回原类型的任何子类型的对象</div></pre></td></tr></table></figure></p>
+<p>公有的静态工厂方法所返回的对象的类不仅可以是非公有的，而且该类还可以随着每次调用而发生变化，这取决于静态工厂方法的参数值。只要是已声明的返回类型的子类型，都是允许的。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">优势4：在创建参数化类型实例的时候，它们使代码变得更加简洁</div></pre></td></tr></table></figure></p>
+<p>在调用参数化类的构造器时，即使类型参数很明显，也必须指明。这通常需要连接两次提供类型参数。<br>Map<string,list<string>&gt; m = new HashMap<string,list<string>&gt;();<br>假设HashMap提供了这个静态工厂：<br>public static <k,v> HashMap<k,v> newInstance(){<br>      return new HashMap<k,v>();<br>}<br>则声明 m 可以简化为：<br>Map<string,list<string>&gt; m = HashMap.newInstance();<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">缺点1：类如果不含公有的或者受保护的构造器，就不能被子类化</div></pre></td></tr></table></figure></string,list<string></k,v></k,v></k,v></string,list<string></string,list<string></p>
+<p>这样鼓励程序员使用复用，而不是继承。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">缺点2：与其他的静态方法实际上没有任何区别</div></pre></td></tr></table></figure></p>
+<p>想要查明如何实例化一个类比较困难</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/07/11/Effective-Java/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-MySql-Crash-Course" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     

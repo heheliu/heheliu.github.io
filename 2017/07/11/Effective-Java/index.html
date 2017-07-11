@@ -6,18 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://heheliu.github.io.com">
-  <title>MySql Crash Course | Hexo</title>
+  <title>Effective Java | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Mysql必知必会因为项目暂停，所以有时间看了一下技术的书。好久没有看技术的书了，看完还是有点心得体会的，所以mark一下，以后要多看技术的书，提高一下专业素养，坚持分享。mysql ,oracle,greenDAO（android的一个第三方的数据库）和之前的项目的salesfores的云平台，我们必不可少的需要接触数据库，当然，这些都是DBMS（数据库管理系统），我们很多时候需要去学习的是怎么">
+  <meta name="description" content="分享第一章 创建与销毁对象主题：何时以及如何创建对象，何时以及如何避免创建对象，如何确保它们能够适时的销毁，以及如何管理对象销毁之前必须进行的各种清理动作  第一条：考虑用静态工厂方法代替构造器对于类而言，为了让客户端获取它自身的一个实例，最常用的就是提供一个共有的构造器，还有另外一个方法就是静态工厂方法。1优势1：它有名称 一个类只能有一个带有指定签名的构造器，如果提供两个构造器，它们的参数列表">
 <meta property="og:type" content="article">
-<meta property="og:title" content="MySql Crash Course">
-<meta property="og:url" content="http://heheliu.github.io.com/2017/07/10/MySql-Crash-Course/index.html">
+<meta property="og:title" content="Effective Java">
+<meta property="og:url" content="http://heheliu.github.io.com/2017/07/11/Effective-Java/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Mysql必知必会因为项目暂停，所以有时间看了一下技术的书。好久没有看技术的书了，看完还是有点心得体会的，所以mark一下，以后要多看技术的书，提高一下专业素养，坚持分享。mysql ,oracle,greenDAO（android的一个第三方的数据库）和之前的项目的salesfores的云平台，我们必不可少的需要接触数据库，当然，这些都是DBMS（数据库管理系统），我们很多时候需要去学习的是怎么">
-<meta property="og:updated_time" content="2017-07-10T10:13:06.603Z">
+<meta property="og:description" content="分享第一章 创建与销毁对象主题：何时以及如何创建对象，何时以及如何避免创建对象，如何确保它们能够适时的销毁，以及如何管理对象销毁之前必须进行的各种清理动作  第一条：考虑用静态工厂方法代替构造器对于类而言，为了让客户端获取它自身的一个实例，最常用的就是提供一个共有的构造器，还有另外一个方法就是静态工厂方法。1优势1：它有名称 一个类只能有一个带有指定签名的构造器，如果提供两个构造器，它们的参数列表">
+<meta property="og:updated_time" content="2017-07-11T05:42:01.782Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MySql Crash Course">
-<meta name="twitter:description" content="Mysql必知必会因为项目暂停，所以有时间看了一下技术的书。好久没有看技术的书了，看完还是有点心得体会的，所以mark一下，以后要多看技术的书，提高一下专业素养，坚持分享。mysql ,oracle,greenDAO（android的一个第三方的数据库）和之前的项目的salesfores的云平台，我们必不可少的需要接触数据库，当然，这些都是DBMS（数据库管理系统），我们很多时候需要去学习的是怎么">
+<meta name="twitter:title" content="Effective Java">
+<meta name="twitter:description" content="分享第一章 创建与销毁对象主题：何时以及如何创建对象，何时以及如何避免创建对象，如何确保它们能够适时的销毁，以及如何管理对象销毁之前必须进行的各种清理动作  第一条：考虑用静态工厂方法代替构造器对于类而言，为了让客户端获取它自身的一个实例，最常用的就是提供一个共有的构造器，还有另外一个方法就是静态工厂方法。1优势1：它有名称 一个类只能有一个带有指定签名的构造器，如果提供两个构造器，它们的参数列表">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -157,32 +157,34 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-MySql-Crash-Course" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Effective-Java" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      MySql Crash Course
+      Effective Java
     </h1>
   
 
         
-        <a href="/2017/07/10/MySql-Crash-Course/" class="archive-article-date">
-  	<time datetime="2017-07-10T08:48:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-10</time>
+        <a href="/2017/07/11/Effective-Java/" class="archive-article-date">
+  	<time datetime="2017-07-11T01:51:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-11</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Mysql必知必会<br>因为项目暂停，所以有时间看了一下技术的书。好久没有看技术的书了，看完还是有点心得体会的，所以mark一下，以后要多看技术的书，提高一下专业素养，坚持分享。<br>mysql ,oracle,greenDAO（android的一个第三方的数据库）和之前的项目的salesfores的云平台，我们必不可少的需要接触数据库，当然，这些都是DBMS（数据库管理系统），我们很多时候需要去学习的是怎么使用这些DBMS，也就是数据库的一些操作。MySql是其中一种的数据库管理系统，即是一个数据库软件，但基本语句和操作和其他系统一样，总之，特殊的语句可以在之后用到的时候再去学习。<br>Mysql必知必会这本书是针对关系型数据库的一些基本操作（增删改查）的说明，以及视图，存储过程，触发器，游标，事务处理，引擎的讲解。<br>1.工具<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">下载地址：https://dev.mysql.com/downloads/ （mysql 5.7.6）</div><div class="line">建表工具：Navicat <span class="keyword">for</span> MySql &amp; power designer</div><div class="line">        https://www.navicat.com.cn/download/navicat-for-mysql</div></pre></td></tr></table></figure></p>
-<p>2.连接—客户机与服务器<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"> Mysql 两种启动方式</div><div class="line">Mysqld – install root password hostname.err (C:\Users\hliu110\Documents\MySql\zip\mysql-5.7.18-win32\data\heliu.err)</div><div class="line">设置密码</div></pre></td></tr></table></figure></p>
-<p>3.数据库基础：什么是数据库<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">数据库：保存有组织的数据的容器（通常是一个文件或一组文件）</div><div class="line">表：某种特定类型数据的结构化清单</div><div class="line">模式（schema）：关于数据库和表的布局及特性的信息</div><div class="line">列：表中的一个字段，所有表都是由一个或多个列组成</div><div class="line">行：表中的一个记录</div><div class="line">主键：一列（或一组列），其值能够唯一区分表中的每个行</div></pre></td></tr></table></figure></p>
-<p>4.检索数据:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">检索单个列:select prod_name from products;</div><div class="line">检索多个列:select prod_id,prod_name from products;</div><div class="line">检索所有列:select * from products;</div><div class="line">排序检索数据:</div><div class="line">Select prod_name from products order by prod_name desc;</div><div class="line">过滤数据:</div><div class="line">Select prod_name,prod_price from products <span class="built_in">where</span> prod_price = 2.5;</div></pre></td></tr></table></figure></p>
-<p>5.用通配符或正则表达式进行搜素<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">创建计算字段</div><div class="line">使用数据处理函数</div><div class="line">分组数据 group by</div><div class="line">使用子查询</div><div class="line">联结表</div><div class="line">组合查询</div><div class="line">全文本搜索</div><div class="line">插入数据</div><div class="line">更新数据</div><div class="line">删除数据</div></pre></td></tr></table></figure></p>
-<p>6.创建和操纵表<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">视图</div><div class="line">存储过程</div><div class="line">触发器</div><div class="line">事务处理</div><div class="line">全球化&amp;本地化</div><div class="line">安全管理</div></pre></td></tr></table></figure></p>
+        <p>分享第一章 创建与销毁对象<br>主题：何时以及如何创建对象，何时以及如何避免创建对象，如何确保它们能够适时的销毁，以及如何管理对象销毁之前必须进行的各种清理动作 </p>
+<p>第一条：考虑用静态工厂方法代替构造器<br>对于类而言，为了让客户端获取它自身的一个实例，最常用的就是提供一个共有的构造器，还有另外一个方法就是静态工厂方法。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">优势1：它有名称</div></pre></td></tr></table></figure></p>
+<p>一个类只能有一个带有指定签名的构造器，如果提供两个构造器，它们的参数列表只在参数类型的顺序上有所不同。使用静态工厂的方法可以确切描述返回的对象，便于阅读，也更为清楚。（BigInteger.probablePrime）<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">优势2：不必在每次调用的时候都创建一个新的对象</div></pre></td></tr></table></figure></p>
+<p>使得不可变类可以使用构建好的实例，或者将构建好的实例缓存起来，进行重复利用，从而避免创建不必要的重复对象。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">优势3：可以返回原类型的任何子类型的对象</div></pre></td></tr></table></figure></p>
+<p>公有的静态工厂方法所返回的对象的类不仅可以是非公有的，而且该类还可以随着每次调用而发生变化，这取决于静态工厂方法的参数值。只要是已声明的返回类型的子类型，都是允许的。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">优势4：在创建参数化类型实例的时候，它们使代码变得更加简洁</div></pre></td></tr></table></figure></p>
+<p>在调用参数化类的构造器时，即使类型参数很明显，也必须指明。这通常需要连接两次提供类型参数。<br>Map<string,list<string>&gt; m = new HashMap<string,list<string>&gt;();<br>假设HashMap提供了这个静态工厂：<br>public static <k,v> HashMap<k,v> newInstance(){<br>      return new HashMap<k,v>();<br>}<br>则声明 m 可以简化为：<br>Map<string,list<string>&gt; m = HashMap.newInstance();<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">缺点1：类如果不含公有的或者受保护的构造器，就不能被子类化</div></pre></td></tr></table></figure></string,list<string></k,v></k,v></k,v></string,list<string></string,list<string></p>
+<p>这样鼓励程序员使用复用，而不是继承。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">缺点2：与其他的静态方法实际上没有任何区别</div></pre></td></tr></table></figure></p>
+<p>想要查明如何实例化一个类比较困难</p>
 
       
 
@@ -262,7 +264,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://heheliu.github.io.com/2017/07/10/MySql-Crash-Course/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://heheliu.github.io.com/2017/07/11/Effective-Java/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -276,18 +278,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/07/11/Effective-Java/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Effective Java
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/07/05/my-first-blog/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">&#39;my-first-blog&#39;</div>
+    <a href="/2017/07/10/MySql-Crash-Course/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">MySql Crash Course</div>
       <i class="icon-circle-right"></i>
     </a>
   
