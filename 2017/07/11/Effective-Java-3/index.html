@@ -8,16 +8,16 @@
   <link rel="dns-prefetch" href="http://heheliu.github.io.com">
   <title>Effective Java 3 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Effective Java 3第三条 用私有构造器或者枚举类型强化Singleton属性Singleton指仅仅被实例化一次的类。Java 1.5 之前有两种方式可以实现Singleton，这两种方法都要把构造器保持为私有的，并导出公有的静态成员，以便允许客户端能够访问该类的唯一实例。1.公有静态成员是个final域 public class NutritionFacts {    public">
+  <meta name="description" content="第三条 用私有构造器或者枚举类型强化Singleton属性Singleton指仅仅被实例化一次的类。Java 1.5 之前有两种方式可以实现Singleton，这两种方法都要把构造器保持为私有的，并导出公有的静态成员，以便允许客户端能够访问该类的唯一实例。1.公有静态成员是个final域12345678public class NutritionFacts &amp;#123;	public static">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Effective Java 3">
 <meta property="og:url" content="http://heheliu.github.io.com/2017/07/11/Effective-Java-3/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Effective Java 3第三条 用私有构造器或者枚举类型强化Singleton属性Singleton指仅仅被实例化一次的类。Java 1.5 之前有两种方式可以实现Singleton，这两种方法都要把构造器保持为私有的，并导出公有的静态成员，以便允许客户端能够访问该类的唯一实例。1.公有静态成员是个final域 public class NutritionFacts {    public">
-<meta property="og:updated_time" content="2017-07-12T02:37:33.482Z">
+<meta property="og:description" content="第三条 用私有构造器或者枚举类型强化Singleton属性Singleton指仅仅被实例化一次的类。Java 1.5 之前有两种方式可以实现Singleton，这两种方法都要把构造器保持为私有的，并导出公有的静态成员，以便允许客户端能够访问该类的唯一实例。1.公有静态成员是个final域12345678public class NutritionFacts &amp;#123;	public static">
+<meta property="og:updated_time" content="2017-07-12T02:41:00.060Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Effective Java 3">
-<meta name="twitter:description" content="Effective Java 3第三条 用私有构造器或者枚举类型强化Singleton属性Singleton指仅仅被实例化一次的类。Java 1.5 之前有两种方式可以实现Singleton，这两种方法都要把构造器保持为私有的，并导出公有的静态成员，以便允许客户端能够访问该类的唯一实例。1.公有静态成员是个final域 public class NutritionFacts {    public">
+<meta name="twitter:description" content="第三条 用私有构造器或者枚举类型强化Singleton属性Singleton指仅仅被实例化一次的类。Java 1.5 之前有两种方式可以实现Singleton，这两种方法都要把构造器保持为私有的，并导出公有的静态成员，以便允许客户端能够访问该类的唯一实例。1.公有静态成员是个final域12345678public class NutritionFacts &amp;#123;	public static">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -177,9 +177,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Effective Java 3<br>第三条 用私有构造器或者枚举类型强化Singleton属性<br>Singleton指仅仅被实例化一次的类。<br>Java 1.5 之前有两种方式可以实现Singleton，这两种方法都要把构造器保持为私有的，并导出公有的静态成员，以便允许客户端能够访问该类的唯一实例。<br>1.公有静态成员是个final域</p>
-<p>public class NutritionFacts {<br>    public static final NutritionFacts intance =  new NutritionFacts();<br>    private NutritionFacts(){};<br>}</p>
-<p>NutritionFacts n = NutritionFacts.intance;</p>
+        <p>第三条 用私有构造器或者枚举类型强化Singleton属性<br>Singleton指仅仅被实例化一次的类。<br>Java 1.5 之前有两种方式可以实现Singleton，这两种方法都要把构造器保持为私有的，并导出公有的静态成员，以便允许客户端能够访问该类的唯一实例。<br>1.公有静态成员是个final域<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">public class NutritionFacts &#123;</div><div class="line">	public static final NutritionFacts intance =  new NutritionFacts();</div><div class="line">	private <span class="function"><span class="title">NutritionFacts</span></span>()&#123;</div><div class="line">    </div><div class="line">    &#125;;</div><div class="line">&#125;</div><div class="line"></div><div class="line">NutritionFacts n = NutritionFacts.intance;</div></pre></td></tr></table></figure></p>
 <p>私有构造器仅会被调用一次</p>
 <p>2.公有的成员是个静态方法</p>
 <pre><code>  public static final NutritionFacts intance =  new NutritionFacts();
@@ -189,7 +187,7 @@ public static NutritionFacts getInstance(){
 }
 
 NutritionFacts n = NutritionFacts.getInstance();
-</code></pre><p>3.java 1.5 之后，实现Singleton还有第三种方法，只需要编写包含单个元素的枚举类型：<br>  public enum NutritionFacts{<br>      intance;<br>  }</p>
+</code></pre><p>3.java 1.5 之后，实现Singleton还有第三种方法，只需要编写包含单个元素的枚举类型：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">public enum NutritionFacts&#123;</div><div class="line">    intance;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>这种方法更见简洁，无偿的提供了序列化机制，绝对防止多次实例化，即使是在面对复杂的序列化或者反射攻击的时候。</p>
 
       
