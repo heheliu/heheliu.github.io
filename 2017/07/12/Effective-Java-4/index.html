@@ -6,14 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://heheliu.github.io.com">
-  <title>Hexo</title>
+  <title>Effective Java 4 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://heheliu.github.io.com/index.html">
+  <meta name="description" content="第四条 通过私有构造器强化不可实例化的能力在缺少显示构造器的情况下，编译器会自动提供一个公有的，无参的缺省构造器。所以当一个类不希望被实例化时，我们只要让这个类包含私有构造器，它就不能被实例化了。 private NutritionFacts(){     throw new AssertionError(); };">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Effective Java 4">
+<meta property="og:url" content="http://heheliu.github.io.com/2017/07/12/Effective-Java-4/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="第四条 通过私有构造器强化不可实例化的能力在缺少显示构造器的情况下，编译器会自动提供一个公有的，无参的缺省构造器。所以当一个类不希望被实例化时，我们只要让这个类包含私有构造器，它就不能被实例化了。 private NutritionFacts(){     throw new AssertionError(); };">
+<meta property="og:updated_time" content="2017-07-12T03:00:06.906Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="Effective Java 4">
+<meta name="twitter:description" content="第四条 通过私有构造器强化不可实例化的能力在缺少显示构造器的情况下，编译器会自动提供一个公有的，无参的缺省构造器。所以当一个类不希望被实例化时，我们只要让这个类包含私有构造器，它就不能被实例化了。 private NutritionFacts(){     throw new AssertionError(); };">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -153,16 +157,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-Effective-Java-4" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-Effective-Java-4" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/12/Effective-Java-4/">Effective Java 4</a>
+    <h1 class="article-title" itemprop="name">
+      Effective Java 4
     </h1>
   
 
@@ -183,64 +185,26 @@
       
 
       
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/07/12/Effective-Java-4/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-Effective-Java-3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/11/Effective-Java-3/">Effective Java 3</a>
-    </h1>
-  
-
-        
-        <a href="/2017/07/11/Effective-Java-3/" class="archive-article-date">
-  	<time datetime="2017-07-11T09:46:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-11</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>第三条 用私有构造器或者枚举类型强化Singleton属性<br>Singleton指仅仅被实例化一次的类。<br>Java 1.5 之前有两种方式可以实现Singleton，这两种方法都要把构造器保持为私有的，并导出公有的静态成员，以便允许客户端能够访问该类的唯一实例。<br>1.公有静态成员是个final域<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">public class NutritionFacts &#123;</div><div class="line">	public static final NutritionFacts intance =  new NutritionFacts();</div><div class="line">	private <span class="function"><span class="title">NutritionFacts</span></span>()&#123;</div><div class="line">    </div><div class="line">    &#125;;</div><div class="line">&#125;</div><div class="line"></div><div class="line">NutritionFacts n = NutritionFacts.intance;</div></pre></td></tr></table></figure></p>
-<p>私有构造器仅会被调用一次</p>
-<p>2.公有的成员是个静态方法</p>
-<pre><code>  public static final NutritionFacts intance =  new NutritionFacts();
-private NutritionFacts(){};
-public static NutritionFacts getInstance(){
-    return intance;
-}
-
-NutritionFacts n = NutritionFacts.getInstance();
-</code></pre><p>3.java 1.5 之后，实现Singleton还有第三种方法，只需要编写包含单个元素的枚举类型：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">public enum NutritionFacts&#123;</div><div class="line">    intance;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>这种方法更见简洁，无偿的提供了序列化机制，绝对防止多次实例化，即使是在面对复杂的序列化或者反射攻击的时候。</p>
-
-      
-
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -249,324 +213,85 @@ NutritionFacts n = NutritionFacts.getInstance();
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/07/11/Effective-Java-3/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://heheliu.github.io.com/2017/07/12/Effective-Java-4/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
 
-
-
-
-
   
-    <article id="post-Effective-Java-2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/11/Effective-Java-2/">Effective Java 2</a>
-    </h1>
   
-
-        
-        <a href="/2017/07/11/Effective-Java-2/" class="archive-article-date">
-  	<time datetime="2017-07-11T06:22:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-11</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>第二条 遇到多个构造器参数时要考虑使用构建器<br>静态工厂和构造器有个共同的局限性：它们都不能很好的扩展到大量的可选参数<br>考虑用一个类表示包装食品外面显示的营养成分标签。这些标签中有几个域是必须的，还有超过20个可选域，对于这样的类应该怎么编写呢？<br>1.重叠构造器</p>
-<p>public class NutritionFacts {<br>    private final int servingSize;<br>    private final int servings;<br>    private final int calories;<br>    private final int fat;<br>    private final int sodium;<br>    private final int carbohydrate;</p>
-<pre><code>public NutritionFacts(int sodium, int carbohydrate) {
-    this(sodium,carbohydrate,0,0,0,0);
-}
-
-public NutritionFacts(int sodium, int carbohydrate,
-        int servingSize, int servings, int calories, int fat) {
-    super();
-    this.servingSize = servingSize;
-    this.servings = servings;
-    this.calories = calories;
-    this.fat = fat;
-    this.sodium = sodium;
-    this.carbohydrate = carbohydrate;
-}
-</code></pre><p>}<br>重叠构造器模式，当参数很多的时候，客户端代码会很难编写，并且难以阅读。调用者需要仔细的数着这些参数去一探究竟。如果不小心颠倒了其中的两个参数的顺序，编译器也不会出错，但是在程序运行时会出现错误。<br>2.JavaBean模式<br>  在这种模式下，调用一个无参构造器来创建对象，然后调用setter方法来设置每个必要的参数，以及每个相关的可选参数。<br>  public class NutritionFacts {<br>    private  int servingSize = 1;<br>    private  int servings = 0;<br>    private  int calories = 0;<br>    private  int fat = 0;<br>    private  int sodium = 0;<br>    private  int carbohydrate = 0;</p>
-<pre><code>public NutritionFacts() {
-}
-
-public void setServingSize(int servingSize) {
-    this.servingSize = servingSize;
-}
-
-public void setServings(int servings) {
-    this.servings = servings;
-}
-
-public void setCalories(int calories) {
-    this.calories = calories;
-}
-
-public void setFat(int fat) {
-    this.fat = fat;
-}
-
-public void setSodium(int sodium) {
-    this.sodium = sodium;
-}
-
-public void setCarbohydrate(int carbohydrate) {
-    this.carbohydrate = carbohydrate;
-}
-</code></pre><p>}<br>调用：<br>NutritionFacts n = new NutritionFacts();<br>        n.setCalories(240);<br>        n.setServingSize(2);<br>但是JavaBean自身有很严重的缺点。因为构造过程被分到了几个调用中，在构造过程中JavaBean可能处于不一致的状态。JavaBean模式阻止了把类做成不可变的可能。</p>
-<p>3.Builder模式<br>  bulider模式模拟了具名的可选参数<br>  public class NutritionFacts {<br>    private  final int servingSize;<br>    private  final int servings;<br>    private  final int calories;<br>    private  final int fat;<br>    private  final int sodium;<br>    private  final int carbohydrate;</p>
-<pre><code>public static class Bulider{
-    //Required parameters
-    private  final int servingSize;
-    private  final int servings;
-
-    //optional parameters
-    private   int calories;
-    private   int fat;
-    private   int sodium;
-    private   int carbohydrate;
-
-    public Bulider(int servingSize,int servings){
-        this.servingSize = servingSize;
-        this.servings = servings;
-    }
-
-    public Bulider calories(int val){
-        calories = val;
-        return this;
-    }
-    public Bulider fat(int val){
-        fat = val;
-        return this;
-    }
-    public Bulider sodium(int val){
-        sodium = val;
-        return this;
-    }
-    public Bulider carbohydrate(int val){
-        carbohydrate = val;
-        return this;
-    }
-    public NutritionFacts bulid(){
-        return new NutritionFacts(this);
-    }
-}
-private NutritionFacts(Bulider bulider){
-    servingSize = bulider.servingSize;
-    servings =  bulider.servings;
-    calories = bulider.calories;
-    carbohydrate =bulider.carbohydrate;
-    fat = bulider.fat;
-    sodium = bulider.sodium;
-}
-</code></pre><p>}<br>调用：NutritionFacts n = new NutritionFacts.Bulider(1, 1).calories(2).bulid();<br>Bulider模式不直接生成要想的对象，而是让客户端利用所有必要的参数调用构造器，得到一个Bulider对象，然后客户端在bulider对象上调用类似setter的方法，来设置每个相关的可选参数。最后，客户端调用无参的bulid方法来生成不可变的对象。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">总结：如果类的构造器或者静态工厂中具有多个参数，设计这种类时，Bulider模式就是一种不错的选择。</div></pre></td></tr></table></figure></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/07/11/Effective-Java-2/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
+    <a href="/2017/07/11/Effective-Java-3/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Effective Java 3</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
 
 
 
 
   
-    <article id="post-Effective-Java" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/11/Effective-Java/">Effective Java</a>
-    </h1>
   
 
-        
-        <a href="/2017/07/11/Effective-Java/" class="archive-article-date">
-  	<time datetime="2017-07-11T01:51:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-11</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>分享第一章 创建与销毁对象<br>主题：何时以及如何创建对象，何时以及如何避免创建对象，如何确保它们能够适时的销毁，以及如何管理对象销毁之前必须进行的各种清理动作 </p>
-<p>第一条：考虑用静态工厂方法代替构造器<br>对于类而言，为了让客户端获取它自身的一个实例，最常用的就是提供一个共有的构造器，还有另外一个方法就是静态工厂方法。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">优势1：它有名称</div></pre></td></tr></table></figure></p>
-<p>一个类只能有一个带有指定签名的构造器，如果提供两个构造器，它们的参数列表只在参数类型的顺序上有所不同。使用静态工厂的方法可以确切描述返回的对象，便于阅读，也更为清楚。（BigInteger.probablePrime）<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">优势2：不必在每次调用的时候都创建一个新的对象</div></pre></td></tr></table></figure></p>
-<p>使得不可变类可以使用构建好的实例，或者将构建好的实例缓存起来，进行重复利用，从而避免创建不必要的重复对象。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">优势3：可以返回原类型的任何子类型的对象</div></pre></td></tr></table></figure></p>
-<p>公有的静态工厂方法所返回的对象的类不仅可以是非公有的，而且该类还可以随着每次调用而发生变化，这取决于静态工厂方法的参数值。只要是已声明的返回类型的子类型，都是允许的。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">优势4：在创建参数化类型实例的时候，它们使代码变得更加简洁</div></pre></td></tr></table></figure></p>
-<p>在调用参数化类的构造器时，即使类型参数很明显，也必须指明。这通常需要连接两次提供类型参数。<br>Map<string,list<string>&gt; m = new HashMap<string,list<string>&gt;();<br>假设HashMap提供了这个静态工厂：<br>public static <k,v> HashMap<k,v> newInstance(){<br>      return new HashMap<k,v>();<br>}<br>则声明 m 可以简化为：<br>Map<string,list<string>&gt; m = HashMap.newInstance();<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">缺点1：类如果不含公有的或者受保护的构造器，就不能被子类化</div></pre></td></tr></table></figure></string,list<string></k,v></k,v></k,v></string,list<string></string,list<string></p>
-<p>这样鼓励程序员使用复用，而不是继承。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">缺点2：与其他的静态方法实际上没有任何区别</div></pre></td></tr></table></figure></p>
-<p>想要查明如何实例化一个类比较困难</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/07/11/Effective-Java/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-MySql-Crash-Course" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/10/MySql-Crash-Course/">MySql Crash Course</a>
-    </h1>
   
 
-        
-        <a href="/2017/07/10/MySql-Crash-Course/" class="archive-article-date">
-  	<time datetime="2017-07-10T08:48:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Mysql必知必会<br>因为项目暂停，所以有时间看了一下技术的书。好久没有看技术的书了，看完还是有点心得体会的，所以mark一下，以后要多看技术的书，提高一下专业素养，坚持分享。<br>mysql ,oracle,greenDAO（android的一个第三方的数据库）和之前的项目的salesfores的云平台，我们必不可少的需要接触数据库，当然，这些都是DBMS（数据库管理系统），我们很多时候需要去学习的是怎么使用这些DBMS，也就是数据库的一些操作。MySql是其中一种的数据库管理系统，即是一个数据库软件，但基本语句和操作和其他系统一样，总之，特殊的语句可以在之后用到的时候再去学习。<br>Mysql必知必会这本书是针对关系型数据库的一些基本操作（增删改查）的说明，以及视图，存储过程，触发器，游标，事务处理，引擎的讲解。<br>1.工具<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">下载地址：https://dev.mysql.com/downloads/ （mysql 5.7.6）</div><div class="line">建表工具：Navicat <span class="keyword">for</span> MySql &amp; power designer</div><div class="line">        https://www.navicat.com.cn/download/navicat-for-mysql</div></pre></td></tr></table></figure></p>
-<p>2.连接—客户机与服务器<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"> Mysql 两种启动方式</div><div class="line">Mysqld – install root password hostname.err (C:\Users\hliu110\Documents\MySql\zip\mysql-5.7.18-win32\data\heliu.err)</div><div class="line">设置密码</div></pre></td></tr></table></figure></p>
-<p>3.数据库基础：什么是数据库<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">数据库：保存有组织的数据的容器（通常是一个文件或一组文件）</div><div class="line">表：某种特定类型数据的结构化清单</div><div class="line">模式（schema）：关于数据库和表的布局及特性的信息</div><div class="line">列：表中的一个字段，所有表都是由一个或多个列组成</div><div class="line">行：表中的一个记录</div><div class="line">主键：一列（或一组列），其值能够唯一区分表中的每个行</div></pre></td></tr></table></figure></p>
-<p>4.检索数据:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">检索单个列:select prod_name from products;</div><div class="line">检索多个列:select prod_id,prod_name from products;</div><div class="line">检索所有列:select * from products;</div><div class="line">排序检索数据:</div><div class="line">Select prod_name from products order by prod_name desc;</div><div class="line">过滤数据:</div><div class="line">Select prod_name,prod_price from products <span class="built_in">where</span> prod_price = 2.5;</div></pre></td></tr></table></figure></p>
-<p>5.用通配符或正则表达式进行搜素<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">创建计算字段</div><div class="line">使用数据处理函数</div><div class="line">分组数据 group by</div><div class="line">使用子查询</div><div class="line">联结表</div><div class="line">组合查询</div><div class="line">全文本搜索</div><div class="line">插入数据</div><div class="line">更新数据</div><div class="line">删除数据</div></pre></td></tr></table></figure></p>
-<p>6.创建和操纵表<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">视图</div><div class="line">存储过程</div><div class="line">触发器</div><div class="line">事务处理</div><div class="line">全球化&amp;本地化</div><div class="line">安全管理</div></pre></td></tr></table></figure></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/07/10/MySql-Crash-Course/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/05/hello-world/">Hello World</a>
-    </h1>
-  
-
-        
-        <a href="/2017/07/05/hello-world/" class="archive-article-date">
-  	<time datetime="2017-07-05T07:40:46.661Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-<p>搭建博客走过的最大的一个坑：repository 的地址是https而不是ssh.<br>deploy:<br>  type: git<br>  repository: <a href="https://github.com/heheliu/heheliu.github.io.git" target="_blank" rel="external">https://github.com/heheliu/heheliu.github.io.git</a><br>  branch: master</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/07/05/hello-world/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
   
 
 
@@ -589,8 +314,8 @@ private NutritionFacts(Bulider bulider){
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
