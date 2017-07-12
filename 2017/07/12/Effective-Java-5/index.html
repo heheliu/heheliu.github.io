@@ -6,18 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://heheliu.github.io.com">
-  <title>Effective Java 4 | Hexo</title>
+  <title>Effective Java 5 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="第四条 通过私有构造器强化不可实例化的能力在缺少显示构造器的情况下，编译器会自动提供一个公有的，无参的缺省构造器。所以当一个类不希望被实例化时，我们只要让这个类包含私有构造器，它就不能被实例化了。 private NutritionFacts(){     throw new AssertionError(); };">
+  <meta name="description" content="第五条 避免创建不必要的对象一般来说，最好能重用对象而不是在每次需要的时候去创建一个相同功能的新对象。对于同时提供了静态工厂方法和构造器的不可变类，通常可以使用静态工厂方法而不是构造器，以避免创建不必要的对象。构造器在每次被调用的时候都会创建一个新的对象，而静态工厂方法则不会。 private final Date birthDate = null; public boolean isBabyBo">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Effective Java 4">
-<meta property="og:url" content="http://heheliu.github.io.com/2017/07/12/Effective-Java-4/index.html">
+<meta property="og:title" content="Effective Java 5">
+<meta property="og:url" content="http://heheliu.github.io.com/2017/07/12/Effective-Java-5/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="第四条 通过私有构造器强化不可实例化的能力在缺少显示构造器的情况下，编译器会自动提供一个公有的，无参的缺省构造器。所以当一个类不希望被实例化时，我们只要让这个类包含私有构造器，它就不能被实例化了。 private NutritionFacts(){     throw new AssertionError(); };">
-<meta property="og:updated_time" content="2017-07-12T03:00:06.906Z">
+<meta property="og:description" content="第五条 避免创建不必要的对象一般来说，最好能重用对象而不是在每次需要的时候去创建一个相同功能的新对象。对于同时提供了静态工厂方法和构造器的不可变类，通常可以使用静态工厂方法而不是构造器，以避免创建不必要的对象。构造器在每次被调用的时候都会创建一个新的对象，而静态工厂方法则不会。 private final Date birthDate = null; public boolean isBabyBo">
+<meta property="og:updated_time" content="2017-07-12T06:34:06.079Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Effective Java 4">
-<meta name="twitter:description" content="第四条 通过私有构造器强化不可实例化的能力在缺少显示构造器的情况下，编译器会自动提供一个公有的，无参的缺省构造器。所以当一个类不希望被实例化时，我们只要让这个类包含私有构造器，它就不能被实例化了。 private NutritionFacts(){     throw new AssertionError(); };">
+<meta name="twitter:title" content="Effective Java 5">
+<meta name="twitter:description" content="第五条 避免创建不必要的对象一般来说，最好能重用对象而不是在每次需要的时候去创建一个相同功能的新对象。对于同时提供了静态工厂方法和构造器的不可变类，通常可以使用静态工厂方法而不是构造器，以避免创建不必要的对象。构造器在每次被调用的时候都会创建一个新的对象，而静态工厂方法则不会。 private final Date birthDate = null; public boolean isBabyBo">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -157,31 +157,62 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Effective-Java-4" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Effective-Java-5" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Effective Java 4
+      Effective Java 5
     </h1>
   
 
         
-        <a href="/2017/07/12/Effective-Java-4/" class="archive-article-date">
-  	<time datetime="2017-07-12T02:46:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-12</time>
+        <a href="/2017/07/12/Effective-Java-5/" class="archive-article-date">
+  	<time datetime="2017-07-12T05:39:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-12</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>第四条 通过私有构造器强化不可实例化的能力<br>在缺少显示构造器的情况下，编译器会自动提供一个公有的，无参的缺省构造器。所以当一个类不希望被实例化时，我们只要让这个类包含私有构造器，它就不能被实例化了。</p>
-<pre><code>private NutritionFacts(){
-    throw new AssertionError();
-};
-</code></pre>
+        <p>第五条 避免创建不必要的对象<br>一般来说，最好能重用对象而不是在每次需要的时候去创建一个相同功能的新对象。<br>对于同时提供了静态工厂方法和构造器的不可变类，通常可以使用静态工厂方法而不是构造器，以避免创建不必要的对象。<br>构造器在每次被调用的时候都会创建一个新的对象，而静态工厂方法则不会。</p>
+<pre><code>private final Date birthDate = null;
+public boolean isBabyBoomer(){
+    Calendar gmtCal = Calendar.getInstance(TimeZone.getTimeZone(&quot;GMT&quot;));
+    gmtCal.set(1946, Calendar.JANUARY,1,0,0,0);
+    Date boomStart = gmtCal.getTime();
+    gmtCal.set(1965, Calendar.JANUARY,1,0,0,0);
+    Date endBoom = gmtCal.getTime();
+    return birthDate.compareTo(boomStart) &gt;= 0 &amp;&amp; birthDate.compareTo(endBoom)&lt; 0;
+}
+</code></pre><p>该方法每次被调用的时候，都会新建一个Calender，一个TimeZone和两个Date实例，这是不必要的。</p>
+<p>改进之后：只在类初始化的时候创建Calendar，TimeZone，Date</p>
+<pre><code>private final Date birthDate = null;
+private static final Date boomStart;
+private static final Date endBoom;
+
+static {
+    Calendar gmtCal = Calendar.getInstance(TimeZone.getTimeZone(&quot;GMT&quot;));
+    gmtCal.set(1946, Calendar.JANUARY,1,0,0,0);
+     boomStart = gmtCal.getTime();
+    gmtCal.set(1965, Calendar.JANUARY,1,0,0,0);
+     endBoom = gmtCal.getTime();
+}
+
+public boolean isBabyBoomer(){
+    return birthDate.compareTo(boomStart) &gt;= 0 &amp;&amp; birthDate.compareTo(endBoom)&lt; 0;
+}
+</code></pre><p>适配器是指这样一个对象：它把功能委托给一个后备对象，从而为后备对象提供一个可以替代的接口。</p>
+<p>在Java 1.5 发行版本中，有一种创建对于对象的新方法，称做是自动装箱，它允许程序员将基本类型和装箱基本类型混用，按需要自动装箱和拆箱。</p>
+<pre><code>public static void main(String args[]){
+   long sum = 0L;
+   for(long i = 0;i&lt;Integer.MAX_VALUE;i++){
+       sum += i; 
+   }
+</code></pre><p>将sum的声明从Long改成long，运行时间从43秒减少到了6.8秒。结论很明显：要优先使用基本类型而不是装箱基本类型，要当心无意识的自动装箱。</p>
+
       
 
       
@@ -260,7 +291,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://heheliu.github.io.com/2017/07/12/Effective-Java-4/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://heheliu.github.io.com/2017/07/12/Effective-Java-5/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -274,18 +305,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/07/12/Effective-Java-5/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Effective Java 5
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/07/11/Effective-Java-3/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Effective Java 3</div>
+    <a href="/2017/07/12/Effective-Java-4/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Effective Java 4</div>
       <i class="icon-circle-right"></i>
     </a>
   
