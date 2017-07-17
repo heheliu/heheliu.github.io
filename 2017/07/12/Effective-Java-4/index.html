@@ -6,18 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://heheliu.github.io.com">
-  <title>Effective Java 4 | Hexo</title>
+  <title>通过私有构造器强化不可实例化的能力 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="第四条 通过私有构造器强化不可实例化的能力在缺少显示构造器的情况下，编译器会自动提供一个公有的，无参的缺省构造器。所以当一个类不希望被实例化时，我们只要让这个类包含私有构造器，它就不能被实例化了。 private NutritionFacts(){     throw new AssertionError(); };">
+  <meta name="description" content="第四条在缺少显示构造器的情况下，编译器会自动提供一个公有的，无参的缺省构造器。所以当一个类不希望被实例化时，我们只要让这个类包含私有构造器，它就不能被实例化了。 private NutritionFacts(){     throw new AssertionError(); };">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Effective Java 4">
+<meta property="og:title" content="通过私有构造器强化不可实例化的能力">
 <meta property="og:url" content="http://heheliu.github.io.com/2017/07/12/Effective-Java-4/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="第四条 通过私有构造器强化不可实例化的能力在缺少显示构造器的情况下，编译器会自动提供一个公有的，无参的缺省构造器。所以当一个类不希望被实例化时，我们只要让这个类包含私有构造器，它就不能被实例化了。 private NutritionFacts(){     throw new AssertionError(); };">
-<meta property="og:updated_time" content="2017-07-12T03:00:06.906Z">
+<meta property="og:description" content="第四条在缺少显示构造器的情况下，编译器会自动提供一个公有的，无参的缺省构造器。所以当一个类不希望被实例化时，我们只要让这个类包含私有构造器，它就不能被实例化了。 private NutritionFacts(){     throw new AssertionError(); };">
+<meta property="og:updated_time" content="2017-07-17T02:49:55.555Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Effective Java 4">
-<meta name="twitter:description" content="第四条 通过私有构造器强化不可实例化的能力在缺少显示构造器的情况下，编译器会自动提供一个公有的，无参的缺省构造器。所以当一个类不希望被实例化时，我们只要让这个类包含私有构造器，它就不能被实例化了。 private NutritionFacts(){     throw new AssertionError(); };">
+<meta name="twitter:title" content="通过私有构造器强化不可实例化的能力">
+<meta name="twitter:description" content="第四条在缺少显示构造器的情况下，编译器会自动提供一个公有的，无参的缺省构造器。所以当一个类不希望被实例化时，我们只要让这个类包含私有构造器，它就不能被实例化了。 private NutritionFacts(){     throw new AssertionError(); };">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -164,7 +164,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Effective Java 4
+      通过私有构造器强化不可实例化的能力
     </h1>
   
 
@@ -177,7 +177,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>第四条 通过私有构造器强化不可实例化的能力<br>在缺少显示构造器的情况下，编译器会自动提供一个公有的，无参的缺省构造器。所以当一个类不希望被实例化时，我们只要让这个类包含私有构造器，它就不能被实例化了。</p>
+        <p>第四条<br>在缺少显示构造器的情况下，编译器会自动提供一个公有的，无参的缺省构造器。所以当一个类不希望被实例化时，我们只要让这个类包含私有构造器，它就不能被实例化了。</p>
 <pre><code>private NutritionFacts(){
     throw new AssertionError();
 };
@@ -278,14 +278,14 @@
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Effective Java 5
+          避免创建不必要的对象
         
       </div>
     </a>
   
   
     <a href="/2017/07/11/Effective-Java-3/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Effective Java 3</div>
+      <div class="article-nav-title">用私有构造器或者枚举类型强化Singleton属性</div>
       <i class="icon-circle-right"></i>
     </a>
   

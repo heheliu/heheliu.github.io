@@ -6,18 +6,15 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://heheliu.github.io.com">
-  <title>避免使用终结方法 | Hexo</title>
+  <title>Effective Java 8 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="第七条终结方法的缺点在于不能保证会被及时的执行。从一个对象变得不可达开始到它的终结方法被执行，所花费的这段时间是任意的。Java语言规范不仅不保证终结方法会被及时的执行，而且根本就不保证会被执行。 不要被System.gc和System.runFinalization这两个方法所诱惑，它们确实增加了被执行的机会，但是它们并不保证终结方法一定会被执行。 显示终止方法的典型例子就是InputStrea">
-<meta property="og:type" content="article">
-<meta property="og:title" content="避免使用终结方法">
-<meta property="og:url" content="http://heheliu.github.io.com/2017/07/12/Effective-Java-7/index.html">
+  <meta property="og:type" content="article">
+<meta property="og:title" content="Effective Java 8">
+<meta property="og:url" content="http://heheliu.github.io.com/2017/07/13/Effective-Java-8/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="第七条终结方法的缺点在于不能保证会被及时的执行。从一个对象变得不可达开始到它的终结方法被执行，所花费的这段时间是任意的。Java语言规范不仅不保证终结方法会被及时的执行，而且根本就不保证会被执行。 不要被System.gc和System.runFinalization这两个方法所诱惑，它们确实增加了被执行的机会，但是它们并不保证终结方法一定会被执行。 显示终止方法的典型例子就是InputStrea">
-<meta property="og:updated_time" content="2017-07-17T02:49:16.908Z">
+<meta property="og:updated_time" content="2017-07-13T02:21:04.834Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="避免使用终结方法">
-<meta name="twitter:description" content="第七条终结方法的缺点在于不能保证会被及时的执行。从一个对象变得不可达开始到它的终结方法被执行，所花费的这段时间是任意的。Java语言规范不仅不保证终结方法会被及时的执行，而且根本就不保证会被执行。 不要被System.gc和System.runFinalization这两个方法所诱惑，它们确实增加了被执行的机会，但是它们并不保证终结方法一定会被执行。 显示终止方法的典型例子就是InputStrea">
+<meta name="twitter:title" content="Effective Java 8">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -157,31 +154,27 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Effective-Java-7" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Effective-Java-8" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      避免使用终结方法
+      Effective Java 8
     </h1>
   
 
         
-        <a href="/2017/07/12/Effective-Java-7/" class="archive-article-date">
-  	<time datetime="2017-07-12T09:22:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-12</time>
+        <a href="/2017/07/13/Effective-Java-8/" class="archive-article-date">
+  	<time datetime="2017-07-13T02:21:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-13</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>第七条<br>终结方法的缺点在于不能保证会被及时的执行。从一个对象变得不可达开始到它的终结方法被执行，所花费的这段时间是任意的。Java语言规范不仅不保证终结方法会被及时的执行，而且根本就不保证会被执行。</p>
-<p>不要被System.gc和System.runFinalization这两个方法所诱惑，它们确实增加了被执行的机会，但是它们并不保证终结方法一定会被执行。</p>
-<p>显示终止方法的典型例子就是InputStream，OutputStream的Close方法，显示终止方法通常与try-finally结构结合起来使用，以确保及时终止。在finally子句内部调用显示终止方法，可以确保即使在使用对象的时候有异常抛出，该方法也会执行.</p>
-<p>终结方法通常是不可预测的，也是很危险的，一般情况下是不必要的。</p>
-
+        
       
 
       
@@ -260,7 +253,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://heheliu.github.io.com/2017/07/12/Effective-Java-7/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://heheliu.github.io.com/2017/07/13/Effective-Java-8/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -274,18 +267,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/07/13/Effective-Java-8/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Effective Java 8
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/07/12/Effective-Java-6/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">消除过期的对象引用</div>
+    <a href="/2017/07/12/Effective-Java-7/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">避免使用终结方法</div>
       <i class="icon-circle-right"></i>
     </a>
   

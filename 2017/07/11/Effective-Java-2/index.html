@@ -6,18 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://heheliu.github.io.com">
-  <title>Effective Java 2 | Hexo</title>
+  <title>遇到多个构造器参数时要考虑使用构建器 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="第二条 遇到多个构造器参数时要考虑使用构建器静态工厂和构造器有个共同的局限性：它们都不能很好的扩展到大量的可选参数考虑用一个类表示包装食品外面显示的营养成分标签。这些标签中有几个域是必须的，还有超过20个可选域，对于这样的类应该怎么编写呢？1.重叠构造器 public class NutritionFacts {    private final int servingSize;    priva">
+  <meta name="description" content="第二条静态工厂和构造器有个共同的局限性：它们都不能很好的扩展到大量的可选参数考虑用一个类表示包装食品外面显示的营养成分标签。这些标签中有几个域是必须的，还有超过20个可选域，对于这样的类应该怎么编写呢？1.重叠构造器 public class NutritionFacts {    private final int servingSize;    private final int servin">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Effective Java 2">
+<meta property="og:title" content="遇到多个构造器参数时要考虑使用构建器">
 <meta property="og:url" content="http://heheliu.github.io.com/2017/07/11/Effective-Java-2/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="第二条 遇到多个构造器参数时要考虑使用构建器静态工厂和构造器有个共同的局限性：它们都不能很好的扩展到大量的可选参数考虑用一个类表示包装食品外面显示的营养成分标签。这些标签中有几个域是必须的，还有超过20个可选域，对于这样的类应该怎么编写呢？1.重叠构造器 public class NutritionFacts {    private final int servingSize;    priva">
-<meta property="og:updated_time" content="2017-07-12T02:39:44.840Z">
+<meta property="og:description" content="第二条静态工厂和构造器有个共同的局限性：它们都不能很好的扩展到大量的可选参数考虑用一个类表示包装食品外面显示的营养成分标签。这些标签中有几个域是必须的，还有超过20个可选域，对于这样的类应该怎么编写呢？1.重叠构造器 public class NutritionFacts {    private final int servingSize;    private final int servin">
+<meta property="og:updated_time" content="2017-07-17T02:50:15.214Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Effective Java 2">
-<meta name="twitter:description" content="第二条 遇到多个构造器参数时要考虑使用构建器静态工厂和构造器有个共同的局限性：它们都不能很好的扩展到大量的可选参数考虑用一个类表示包装食品外面显示的营养成分标签。这些标签中有几个域是必须的，还有超过20个可选域，对于这样的类应该怎么编写呢？1.重叠构造器 public class NutritionFacts {    private final int servingSize;    priva">
+<meta name="twitter:title" content="遇到多个构造器参数时要考虑使用构建器">
+<meta name="twitter:description" content="第二条静态工厂和构造器有个共同的局限性：它们都不能很好的扩展到大量的可选参数考虑用一个类表示包装食品外面显示的营养成分标签。这些标签中有几个域是必须的，还有超过20个可选域，对于这样的类应该怎么编写呢？1.重叠构造器 public class NutritionFacts {    private final int servingSize;    private final int servin">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -164,7 +164,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Effective Java 2
+      遇到多个构造器参数时要考虑使用构建器
     </h1>
   
 
@@ -177,7 +177,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>第二条 遇到多个构造器参数时要考虑使用构建器<br>静态工厂和构造器有个共同的局限性：它们都不能很好的扩展到大量的可选参数<br>考虑用一个类表示包装食品外面显示的营养成分标签。这些标签中有几个域是必须的，还有超过20个可选域，对于这样的类应该怎么编写呢？<br>1.重叠构造器</p>
+        <p>第二条<br>静态工厂和构造器有个共同的局限性：它们都不能很好的扩展到大量的可选参数<br>考虑用一个类表示包装食品外面显示的营养成分标签。这些标签中有几个域是必须的，还有超过20个可选域，对于这样的类应该怎么编写呢？<br>1.重叠构造器</p>
 <p>public class NutritionFacts {<br>    private final int servingSize;<br>    private final int servings;<br>    private final int calories;<br>    private final int fat;<br>    private final int sodium;<br>    private final int carbohydrate;</p>
 <pre><code>public NutritionFacts(int sodium, int carbohydrate) {
     this(sodium,carbohydrate,0,0,0,0);
@@ -364,14 +364,14 @@ private NutritionFacts(Bulider bulider){
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Effective Java 3
+          用私有构造器或者枚举类型强化Singleton属性
         
       </div>
     </a>
   
   
     <a href="/2017/07/11/Effective-Java/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Effective Java</div>
+      <div class="article-nav-title">创建与销毁对象</div>
       <i class="icon-circle-right"></i>
     </a>
   

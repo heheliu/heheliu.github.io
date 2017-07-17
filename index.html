@@ -155,6 +155,53 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Effective-Java-8" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/07/13/Effective-Java-8/">Effective Java 8</a>
+    </h1>
+  
+
+        
+        <a href="/2017/07/13/Effective-Java-8/" class="archive-article-date">
+  	<time datetime="2017-07-13T02:21:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/07/13/Effective-Java-8/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-Effective-Java-7" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -162,7 +209,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/12/Effective-Java-7/">Effective Java 7</a>
+      <a class="article-title" href="/2017/07/12/Effective-Java-7/">避免使用终结方法</a>
     </h1>
   
 
@@ -175,7 +222,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>第七条 避免使用终结方法<br>终结方法的缺点在于不能保证会被及时的执行。从一个对象变得不可达开始到它的终结方法被执行，所花费的这段时间是任意的。Java语言规范不仅不保证终结方法会被及时的执行，而且根本就不保证会被执行。</p>
+        <p>第七条<br>终结方法的缺点在于不能保证会被及时的执行。从一个对象变得不可达开始到它的终结方法被执行，所花费的这段时间是任意的。Java语言规范不仅不保证终结方法会被及时的执行，而且根本就不保证会被执行。</p>
 <p>不要被System.gc和System.runFinalization这两个方法所诱惑，它们确实增加了被执行的机会，但是它们并不保证终结方法一定会被执行。</p>
 <p>显示终止方法的典型例子就是InputStream，OutputStream的Close方法，显示终止方法通常与try-finally结构结合起来使用，以确保及时终止。在finally子句内部调用显示终止方法，可以确保即使在使用对象的时候有异常抛出，该方法也会执行.</p>
 <p>终结方法通常是不可预测的，也是很危险的，一般情况下是不必要的。</p>
@@ -213,7 +260,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/12/Effective-Java-6/">Effective Java 6</a>
+      <a class="article-title" href="/2017/07/12/Effective-Java-6/">消除过期的对象引用</a>
     </h1>
   
 
@@ -226,7 +273,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>第六条 消除过期的对象引用<br>当你从手工管理内存的语言（C或C++）转换到具有垃圾回收功能的语言的时候，程序员的工作会变得更加容易，因为当你用完对象之后，它们会被自动回收。但内存管理仍然不容忽视。程序中有一个“内存泄漏”，随着垃圾回收器活动的增加，或者由于内存占用的不断增加，系统的性能降低会逐渐表现出来。在极端的情况下，这种内存泄漏会导致磁盘交换，甚至导致程序失败。</p>
+        <p>第六条<br>当你从手工管理内存的语言（C或C++）转换到具有垃圾回收功能的语言的时候，程序员的工作会变得更加容易，因为当你用完对象之后，它们会被自动回收。但内存管理仍然不容忽视。程序中有一个“内存泄漏”，随着垃圾回收器活动的增加，或者由于内存占用的不断增加，系统的性能降低会逐渐表现出来。在极端的情况下，这种内存泄漏会导致磁盘交换，甚至导致程序失败。</p>
 <p>例：<br>如果一个栈先是增长，然后收缩，那么，从栈中弹出来的对象将不会被当作垃圾回收，即使使用栈的程序不再引用这些对象，它们也不会被回收。这是因为，栈内部维护着这些对象的过期引用。所谓过期引用，是指永远也不会被解除的引用。<br>这种问题的修复方法很简单：一旦对象引用已经过期，只需清空这些引用即可。 elements[size] = null;<br>清空过期引用的一个好处在于，如果它们以后又被错误的解除引用，程序就会立即抛出NullPointerException异常。</p>
 <p>一般而言，只要类是自己管理内存，程序员就应该警惕内存泄漏问题。一旦元素被释放掉，则该元素中包含的任何对象引用都应该被清空。</p>
 <p>内存泄漏的另一种常见来源是：缓存<br>一旦你把对象引用放到缓存中，它就很容易被遗忘掉，从而使得它不再有用之后很长时间内仍然留在缓存中。<br>解决方案：只要在缓存之外存在对某个项的键的引用，该项就有意义。那么就可以用WeakHashMap代表缓存；当缓存中的项过期之后，它们就会被自动删除。</p>
@@ -266,7 +313,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/12/Effective-Java-5/">Effective Java 5</a>
+      <a class="article-title" href="/2017/07/12/Effective-Java-5/">避免创建不必要的对象</a>
     </h1>
   
 
@@ -279,7 +326,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>第五条 避免创建不必要的对象<br>一般来说，最好能重用对象而不是在每次需要的时候去创建一个相同功能的新对象。<br>对于同时提供了静态工厂方法和构造器的不可变类，通常可以使用静态工厂方法而不是构造器，以避免创建不必要的对象。<br>构造器在每次被调用的时候都会创建一个新的对象，而静态工厂方法则不会。</p>
+        <p>第五条<br>一般来说，最好能重用对象而不是在每次需要的时候去创建一个相同功能的新对象。<br>对于同时提供了静态工厂方法和构造器的不可变类，通常可以使用静态工厂方法而不是构造器，以避免创建不必要的对象。<br>构造器在每次被调用的时候都会创建一个新的对象，而静态工厂方法则不会。</p>
 <pre><code>private final Date birthDate = null;
 public boolean isBabyBoomer(){
     Calendar gmtCal = Calendar.getInstance(TimeZone.getTimeZone(&quot;GMT&quot;));
@@ -348,7 +395,7 @@ public boolean isBabyBoomer(){
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/12/Effective-Java-4/">Effective Java 4</a>
+      <a class="article-title" href="/2017/07/12/Effective-Java-4/">通过私有构造器强化不可实例化的能力</a>
     </h1>
   
 
@@ -361,7 +408,7 @@ public boolean isBabyBoomer(){
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>第四条 通过私有构造器强化不可实例化的能力<br>在缺少显示构造器的情况下，编译器会自动提供一个公有的，无参的缺省构造器。所以当一个类不希望被实例化时，我们只要让这个类包含私有构造器，它就不能被实例化了。</p>
+        <p>第四条<br>在缺少显示构造器的情况下，编译器会自动提供一个公有的，无参的缺省构造器。所以当一个类不希望被实例化时，我们只要让这个类包含私有构造器，它就不能被实例化了。</p>
 <pre><code>private NutritionFacts(){
     throw new AssertionError();
 };
@@ -399,7 +446,7 @@ public boolean isBabyBoomer(){
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/11/Effective-Java-3/">Effective Java 3</a>
+      <a class="article-title" href="/2017/07/11/Effective-Java-3/">用私有构造器或者枚举类型强化Singleton属性</a>
     </h1>
   
 
@@ -412,7 +459,7 @@ public boolean isBabyBoomer(){
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>第三条 用私有构造器或者枚举类型强化Singleton属性<br>Singleton指仅仅被实例化一次的类。<br>Java 1.5 之前有两种方式可以实现Singleton，这两种方法都要把构造器保持为私有的，并导出公有的静态成员，以便允许客户端能够访问该类的唯一实例。<br>1.公有静态成员是个final域<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">public class NutritionFacts &#123;</div><div class="line">	public static final NutritionFacts intance =  new NutritionFacts();</div><div class="line">	private <span class="function"><span class="title">NutritionFacts</span></span>()&#123;</div><div class="line">    </div><div class="line">    &#125;;</div><div class="line">&#125;</div><div class="line"></div><div class="line">NutritionFacts n = NutritionFacts.intance;</div></pre></td></tr></table></figure></p>
+        <p>第三条<br>Singleton指仅仅被实例化一次的类。<br>Java 1.5 之前有两种方式可以实现Singleton，这两种方法都要把构造器保持为私有的，并导出公有的静态成员，以便允许客户端能够访问该类的唯一实例。<br>1.公有静态成员是个final域<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">public class NutritionFacts &#123;</div><div class="line">	public static final NutritionFacts intance =  new NutritionFacts();</div><div class="line">	private <span class="function"><span class="title">NutritionFacts</span></span>()&#123;</div><div class="line">    </div><div class="line">    &#125;;</div><div class="line">&#125;</div><div class="line"></div><div class="line">NutritionFacts n = NutritionFacts.intance;</div></pre></td></tr></table></figure></p>
 <p>私有构造器仅会被调用一次</p>
 <p>2.公有的成员是个静态方法</p>
 <pre><code>  public static final NutritionFacts intance =  new NutritionFacts();
@@ -458,7 +505,7 @@ NutritionFacts n = NutritionFacts.getInstance();
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/11/Effective-Java-2/">Effective Java 2</a>
+      <a class="article-title" href="/2017/07/11/Effective-Java-2/">遇到多个构造器参数时要考虑使用构建器</a>
     </h1>
   
 
@@ -471,7 +518,7 @@ NutritionFacts n = NutritionFacts.getInstance();
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>第二条 遇到多个构造器参数时要考虑使用构建器<br>静态工厂和构造器有个共同的局限性：它们都不能很好的扩展到大量的可选参数<br>考虑用一个类表示包装食品外面显示的营养成分标签。这些标签中有几个域是必须的，还有超过20个可选域，对于这样的类应该怎么编写呢？<br>1.重叠构造器</p>
+        <p>第二条<br>静态工厂和构造器有个共同的局限性：它们都不能很好的扩展到大量的可选参数<br>考虑用一个类表示包装食品外面显示的营养成分标签。这些标签中有几个域是必须的，还有超过20个可选域，对于这样的类应该怎么编写呢？<br>1.重叠构造器</p>
 <p>public class NutritionFacts {<br>    private final int servingSize;<br>    private final int servings;<br>    private final int calories;<br>    private final int fat;<br>    private final int sodium;<br>    private final int carbohydrate;</p>
 <pre><code>public NutritionFacts(int sodium, int carbohydrate) {
     this(sodium,carbohydrate,0,0,0,0);
@@ -595,7 +642,7 @@ private NutritionFacts(Bulider bulider){
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/11/Effective-Java/">Effective Java</a>
+      <a class="article-title" href="/2017/07/11/Effective-Java/">创建与销毁对象</a>
     </h1>
   
 
@@ -608,7 +655,7 @@ private NutritionFacts(Bulider bulider){
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>分享第一章 创建与销毁对象<br>主题：何时以及如何创建对象，何时以及如何避免创建对象，如何确保它们能够适时的销毁，以及如何管理对象销毁之前必须进行的各种清理动作 </p>
+        <p>分享第一章<br>主题：何时以及如何创建对象，何时以及如何避免创建对象，如何确保它们能够适时的销毁，以及如何管理对象销毁之前必须进行的各种清理动作 </p>
 <p>第一条：考虑用静态工厂方法代替构造器<br>对于类而言，为了让客户端获取它自身的一个实例，最常用的就是提供一个共有的构造器，还有另外一个方法就是静态工厂方法。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">优势1：它有名称</div></pre></td></tr></table></figure></p>
 <p>一个类只能有一个带有指定签名的构造器，如果提供两个构造器，它们的参数列表只在参数类型的顺序上有所不同。使用静态工厂的方法可以确切描述返回的对象，便于阅读，也更为清楚。（BigInteger.probablePrime）<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">优势2：不必在每次调用的时候都创建一个新的对象</div></pre></td></tr></table></figure></p>
 <p>使得不可变类可以使用构建好的实例，或者将构建好的实例缓存起来，进行重复利用，从而避免创建不必要的重复对象。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">优势3：可以返回原类型的任何子类型的对象</div></pre></td></tr></table></figure></p>
