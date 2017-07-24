@@ -155,6 +155,143 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Effective-Java-2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/07/11/Effective-Java-2/">遇到多个构造器参数时要考虑使用构建器</a>
+    </h1>
+  
+
+        
+        <a href="/2017/07/11/Effective-Java-2/" class="archive-article-date">
+  	<time datetime="2017-07-11T06:22:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>第二条<br>静态工厂和构造器有个共同的局限性：它们都不能很好的扩展到大量的可选参数<br>考虑用一个类表示包装食品外面显示的营养成分标签。这些标签中有几个域是必须的，还有超过20个可选域，对于这样的类应该怎么编写呢？<br>1.重叠构造器</p>
+<p>public class NutritionFacts {<br>    private final int servingSize;<br>    private final int servings;<br>    private final int calories;<br>    private final int fat;<br>    private final int sodium;<br>    private final int carbohydrate;</p>
+<pre><code>public NutritionFacts(int sodium, int carbohydrate) {
+    this(sodium,carbohydrate,0,0,0,0);
+}
+
+public NutritionFacts(int sodium, int carbohydrate,
+        int servingSize, int servings, int calories, int fat) {
+    super();
+    this.servingSize = servingSize;
+    this.servings = servings;
+    this.calories = calories;
+    this.fat = fat;
+    this.sodium = sodium;
+    this.carbohydrate = carbohydrate;
+}
+</code></pre><p>}<br>重叠构造器模式，当参数很多的时候，客户端代码会很难编写，并且难以阅读。调用者需要仔细的数着这些参数去一探究竟。如果不小心颠倒了其中的两个参数的顺序，编译器也不会出错，但是在程序运行时会出现错误。<br>2.JavaBean模式<br>  在这种模式下，调用一个无参构造器来创建对象，然后调用setter方法来设置每个必要的参数，以及每个相关的可选参数。<br>  public class NutritionFacts {<br>    private  int servingSize = 1;<br>    private  int servings = 0;<br>    private  int calories = 0;<br>    private  int fat = 0;<br>    private  int sodium = 0;<br>    private  int carbohydrate = 0;</p>
+<pre><code>public NutritionFacts() {
+}
+
+public void setServingSize(int servingSize) {
+    this.servingSize = servingSize;
+}
+
+public void setServings(int servings) {
+    this.servings = servings;
+}
+
+public void setCalories(int calories) {
+    this.calories = calories;
+}
+
+public void setFat(int fat) {
+    this.fat = fat;
+}
+
+public void setSodium(int sodium) {
+    this.sodium = sodium;
+}
+
+public void setCarbohydrate(int carbohydrate) {
+    this.carbohydrate = carbohydrate;
+}
+</code></pre><p>}<br>调用：<br>NutritionFacts n = new NutritionFacts();<br>        n.setCalories(240);<br>        n.setServingSize(2);<br>但是JavaBean自身有很严重的缺点。因为构造过程被分到了几个调用中，在构造过程中JavaBean可能处于不一致的状态。JavaBean模式阻止了把类做成不可变的可能。</p>
+<p>3.Builder模式<br>  bulider模式模拟了具名的可选参数<br>  public class NutritionFacts {<br>    private  final int servingSize;<br>    private  final int servings;<br>    private  final int calories;<br>    private  final int fat;<br>    private  final int sodium;<br>    private  final int carbohydrate;</p>
+<pre><code>public static class Bulider{
+    //Required parameters
+    private  final int servingSize;
+    private  final int servings;
+
+    //optional parameters
+    private   int calories;
+    private   int fat;
+    private   int sodium;
+    private   int carbohydrate;
+
+    public Bulider(int servingSize,int servings){
+        this.servingSize = servingSize;
+        this.servings = servings;
+    }
+
+    public Bulider calories(int val){
+        calories = val;
+        return this;
+    }
+    public Bulider fat(int val){
+        fat = val;
+        return this;
+    }
+    public Bulider sodium(int val){
+        sodium = val;
+        return this;
+    }
+    public Bulider carbohydrate(int val){
+        carbohydrate = val;
+        return this;
+    }
+    public NutritionFacts bulid(){
+        return new NutritionFacts(this);
+    }
+}
+private NutritionFacts(Bulider bulider){
+    servingSize = bulider.servingSize;
+    servings =  bulider.servings;
+    calories = bulider.calories;
+    carbohydrate =bulider.carbohydrate;
+    fat = bulider.fat;
+    sodium = bulider.sodium;
+}
+</code></pre><p>}<br>调用：NutritionFacts n = new NutritionFacts.Bulider(1, 1).calories(2).bulid();<br>Bulider模式不直接生成要想的对象，而是让客户端利用所有必要的参数调用构造器，得到一个Bulider对象，然后客户端在bulider对象上调用类似setter的方法，来设置每个相关的可选参数。最后，客户端调用无参的bulid方法来生成不可变的对象。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">总结：如果类的构造器或者静态工厂中具有多个参数，设计这种类时，Bulider模式就是一种不错的选择。</div></pre></td></tr></table></figure></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/07/11/Effective-Java-2/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-Effective-Java" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
