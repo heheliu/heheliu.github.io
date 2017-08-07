@@ -155,6 +155,83 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-BMS-Note" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/07/BMS-Note/">BMS Note</a>
+    </h1>
+  
+
+        
+        <a href="/2017/08/07/BMS-Note/" class="archive-article-date">
+  	<time datetime="2017-08-07T01:12:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="How-to-build"><a href="#How-to-build" class="headerlink" title="How to build"></a>How to build</h2><p>To build all the modules run in the project root directory the following command with Maven 3:</p>
+<pre><code>mvn clean install
+</code></pre><p>If you have a running AEM instance you can build and package the whole project and deploy into AEM with  </p>
+<pre><code>mvn clean install -PautoInstallPackage
+</code></pre><p>Or to deploy it to a publish instance, run</p>
+<pre><code>mvn clean install -PautoInstallPackagePublish
+</code></pre><p>Or to deploy only the bundle to the author, run</p>
+<pre><code>mvn clean install -PautoInstallBundle
+
+
+create AEM project by archetype
+1. error handling: maven-update project
+   attention: eclipse bug    
+   check org.eclipse.wst.validation.prefs under &lt;workspace&gt;\.metadata\.plugins\org.eclipse.core.runtime\.settings
+   copy the file from default workspace
+2. update maven version with 3.3.
+3. create AEM project by archetype(debug port:8000)
+4. maven - update project
+5. -Dmaven.multiModuleProjectDirectory system property is not set issue (version 3.3)
+    Window-&gt; Preference -&gt; Java -&gt; Installed JREs -&gt; Edit
+    Default VM arguments:-Dmaven.multiModuleProjectDirectory=$M2_HOME
+6. launch AEM server
+7. debug mode confirguration
+8. remove all the package in demo site
+    9. mvn-sling-model bulid failure cause conflict ------ create project folder---create install folder
+    10. java bundle install jar: http://localhost:4502/system/console/bundles
+    11. when the bundle can&apos;t be active --- see the bundle page have error message -- install responseive jar
+    12. Sling Exception -- bundle not active
+    13. The selected project is not configured with/added to any Sling server. ---right click add the content &amp; core to AEM server
+    14. if there is a invalid link will has a link icon
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/08/07/BMS-Note/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-Class-Interface" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -175,7 +252,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>大家好，我是李笑菲。我是今年毕业于内蒙古工业大学，本人呢也是内蒙人。首先很高兴和大家认识又能一起工作。希望大家在今后的工作和生活中多多帮助，也希望在今后的工作中能和大家多多学习。这是我第一次自我介绍500字，有点紧张，那就从我小学开始说起吧（看着台下，你们不会真的认为我从小学开始吧。。）开玩笑的。 我是一个性格开朗外向的人，很喜欢和大家交朋友。</p>
+
       
 
       
@@ -643,57 +721,6 @@ public boolean isBabyBoomer(){
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2017/07/12/Effective-Java-5/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-Effective-Java-4" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/12/Effective-Java-4/">通过私有构造器强化不可实例化的能力</a>
-    </h1>
-  
-
-        
-        <a href="/2017/07/12/Effective-Java-4/" class="archive-article-date">
-  	<time datetime="2017-07-12T02:46:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>第四条<br>在缺少显示构造器的情况下，编译器会自动提供一个公有的，无参的缺省构造器。所以当一个类不希望被实例化时，我们只要让这个类包含私有构造器，它就不能被实例化了。</p>
-<pre><code>private NutritionFacts(){
-    throw new AssertionError();
-};
-</code></pre>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/07/12/Effective-Java-4/">展开全文 >></a>
         </p>
       
 
