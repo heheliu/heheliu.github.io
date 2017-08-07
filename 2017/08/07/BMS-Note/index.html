@@ -14,7 +14,7 @@
 <meta property="og:url" content="http://heheliu.github.io.com/2017/08/07/BMS-Note/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="How to buildTo build all the modules run in the project root directory the following command with Maven 3: mvn clean install If you have a running AEM instance you can build and package the whole proj">
-<meta property="og:updated_time" content="2017-08-07T01:16:57.775Z">
+<meta property="og:updated_time" content="2017-08-07T01:25:07.811Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="BMS Note">
 <meta name="twitter:description" content="How to buildTo build all the modules run in the project root directory the following command with Maven 3: mvn clean install If you have a running AEM instance you can build and package the whole proj">
@@ -185,10 +185,8 @@
 <pre><code>mvn clean install -PautoInstallPackagePublish
 </code></pre><p>Or to deploy only the bundle to the author, run</p>
 <pre><code>mvn clean install -PautoInstallBundle
-
-
-create AEM project by archetype
-1. error handling: maven-update project
+</code></pre><p>  create AEM project by archetype</p>
+<pre><code>1. error handling: maven-update project
    attention: eclipse bug    
    check org.eclipse.wst.validation.prefs under &lt;workspace&gt;\.metadata\.plugins\org.eclipse.core.runtime\.settings
    copy the file from default workspace
@@ -201,12 +199,12 @@ create AEM project by archetype
 6. launch AEM server
 7. debug mode confirguration
 8. remove all the package in demo site
-    9. mvn-sling-model bulid failure cause conflict ------ create project folder---create install folder
-    10. java bundle install jar: http://localhost:4502/system/console/bundles
-    11. when the bundle can&apos;t be active --- see the bundle page have error message -- install responseive jar
-    12. Sling Exception -- bundle not active
-    13. The selected project is not configured with/added to any Sling server. ---right click add the content &amp; core to AEM server
-    14. if there is a invalid link will has a link icon
+9. mvn-sling-model bulid failure cause conflict ------ create project folder---create install folder
+10. java bundle install jar: http://localhost:4502/system/console/bundles
+11. when the bundle can&apos;t be active --- see the bundle page have error message -- install responseive jar
+12. Sling Exception -- bundle not active
+13. The selected project is not configured with/added to any Sling server. ---right click add the content &amp; core to AEM server
+14. if there is a invalid link will has a link icon
 </code></pre>
       
 
