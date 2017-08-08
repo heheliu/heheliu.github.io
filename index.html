@@ -155,6 +155,56 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-BMS-Note-2017-08-08" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/08/BMS-Note-2017-08-08/">BMS Note 2017-08-08</a>
+    </h1>
+  
+
+        
+        <a href="/2017/08/08/BMS-Note-2017-08-08/" class="archive-article-date">
+  	<time datetime="2017-08-08T01:26:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1.SVN commit issue</p>
+<p> Error:CHECKOUT can only be performed on a version resource [at this time].</p>
+<p> ##most solution Right click project –&gt; team –&gt; cleanup/refresh<br> but for my part i use smartSVN,so i change to commit the content not use the eclipse but use smartSVN it works.</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/08/08/BMS-Note-2017-08-08/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-AJAX" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -631,59 +681,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2017/07/12/Effective-Java-7/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-Effective-Java-6" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/12/Effective-Java-6/">消除过期的对象引用</a>
-    </h1>
-  
-
-        
-        <a href="/2017/07/12/Effective-Java-6/" class="archive-article-date">
-  	<time datetime="2017-07-12T06:46:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>第六条<br>当你从手工管理内存的语言（C或C++）转换到具有垃圾回收功能的语言的时候，程序员的工作会变得更加容易，因为当你用完对象之后，它们会被自动回收。但内存管理仍然不容忽视。程序中有一个“内存泄漏”，随着垃圾回收器活动的增加，或者由于内存占用的不断增加，系统的性能降低会逐渐表现出来。在极端的情况下，这种内存泄漏会导致磁盘交换，甚至导致程序失败。</p>
-<p>例：<br>如果一个栈先是增长，然后收缩，那么，从栈中弹出来的对象将不会被当作垃圾回收，即使使用栈的程序不再引用这些对象，它们也不会被回收。这是因为，栈内部维护着这些对象的过期引用。所谓过期引用，是指永远也不会被解除的引用。<br>这种问题的修复方法很简单：一旦对象引用已经过期，只需清空这些引用即可。 elements[size] = null;<br>清空过期引用的一个好处在于，如果它们以后又被错误的解除引用，程序就会立即抛出NullPointerException异常。</p>
-<p>一般而言，只要类是自己管理内存，程序员就应该警惕内存泄漏问题。一旦元素被释放掉，则该元素中包含的任何对象引用都应该被清空。</p>
-<p>内存泄漏的另一种常见来源是：缓存<br>一旦你把对象引用放到缓存中，它就很容易被遗忘掉，从而使得它不再有用之后很长时间内仍然留在缓存中。<br>解决方案：只要在缓存之外存在对某个项的键的引用，该项就有意义。那么就可以用WeakHashMap代表缓存；当缓存中的项过期之后，它们就会被自动删除。</p>
-<p>内存泄漏的第三个常见来源：监听器和其他回调<br>如果你实现了一个Api，客户端在这个Api中注册回调，却没有显示的取消注册，那么除非你采取某些动作，否则它们就会积聚。确保回调立即被当作垃圾回收的最佳方法只能保存它们的弱引用。、</p>
-<p>借助Heap剖析工具（Heap profiler）可以检测内存泄漏问题。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/07/12/Effective-Java-6/">展开全文 >></a>
         </p>
       
 
