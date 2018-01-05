@@ -1,3 +1,7 @@
 Error when i build in eclipse
 Error message: Unknown lifecycle phase "mvn". You must specify a valid lifecycle phase or a goal
 Methods: remove mvn from command mvn clean install -PautoInstallPackage
+
+Error when i update the trial detail page
+Error Message in logs:SalesforceException: Can't refresh access token due to some unknown error. Please contact Administrator
+Methods: login localhost:4502/welcome/cloud service re-connect the salesforce again
