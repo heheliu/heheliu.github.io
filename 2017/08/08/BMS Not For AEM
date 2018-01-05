@@ -1,0 +1,3 @@
+Error when i build in eclipse
+Error message: Unknown lifecycle phase "mvn". You must specify a valid lifecycle phase or a goal
+Methods: remove mvn from command mvn clean install -PautoInstallPackage
