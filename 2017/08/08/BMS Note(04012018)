@@ -1,0 +1,21 @@
+1. when edit mode can't be edit , should use Apache Sling Main servlet set a big number.
+2. a, an, the, at, by, for, in, of, on, to, up, and, as, but, or, and nor --- name standard
+3. when bulid the project,mvn clean install -PautoInstallBundle,it should navigate to C:\Users\hliu110\Documents\bms1129\studyconnect>core to build.
+4. when start a new instance,it should follow the AEM configuration doc.(include the config the service & connect the salesforce)
+5. content package should be backuped.
+6. when check in the code , confirm with others.(check,check,check)
+7. live copy is used for re-used muliti site,if i make change in the master page(config the component,create the new page ,delete the page) ,it will auto change all live copy page. And in the crx, you can see a new node cq:synlivecopy.
+   for language copy is once copy ,it just copy the same structure.
+8. pre-screen -- if make a little change for used component , we should check all pages which used the component & check every situation. 
+9. environment with node npm -install 
+10.jre jdk 
+11.muliti field if it's not works , should check all place which uesd the muliti field
+12.dateformat
+
+
+what i can learn in this project
+1.email notification 
+2.config with salesforce
+3.querybuild(global search)
+4.use code to create page
+5.Restful API
